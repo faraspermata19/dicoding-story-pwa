@@ -2,29 +2,30 @@
   "name": "Katalog Cerita Dicoding",
   "short_name": "DicodingStory",
   "description": "Aplikasi berbagi cerita dari Dicoding, dapat diinstal dan diakses secara offline.",
-  "start_url": "./index.html",
+  "start_url": "/dicoding-story-pwa/index.html",
+  "scope": "/dicoding-story-pwa/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1e90ff",
   "icons": [
-    { "src": "icon-72x72.png", "sizes": "72x72", "type": "image/png" },
-    { "src": "icon-96x96.png", "sizes": "96x96", "type": "image/png" },
-    { "src": "icon-128x128.png", "sizes": "128x128", "type": "image/png" },
-    { "src": "icon-144x144.png", "sizes": "144x144", "type": "image/png" },
-    { "src": "icon-152x152.png", "sizes": "152x152", "type": "image/png" },
-    { "src": "icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "icon-384x384.png", "sizes": "384x384", "type": "image/png" },
-    { "src": "icon-512x512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/dicoding-story-pwa/icon-72x72.png", "sizes": "72x72", "type": "image/png" },
+    { "src": "/dicoding-story-pwa/icon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "/dicoding-story-pwa/icon-128x128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "/dicoding-story-pwa/icon-144x144.png", "sizes": "144x144", "type": "image/png" },
+    { "src": "/dicoding-story-pwa/icon-152x152.png", "sizes": "152x152", "type": "image/png" },
+    { "src": "/dicoding-story-pwa/icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/dicoding-story-pwa/icon-384x384.png", "sizes": "384x384", "type": "image/png" },
+    { "src": "/dicoding-story-pwa/icon-512x512.png", "sizes": "512x512", "type": "image/png" }
   ],
   "screenshots": [
     {
-      "src": "screenshots/screenshot-desktop.jpg",
+      "src": "/dicoding-story-pwa/screenshots/screenshot-desktop.jpg",
       "sizes": "1280x720",
       "type": "image/jpeg",
       "form_factor": "wide"
     },
     {
-      "src": "screenshots/screenshot-mobile.jpg",
+      "src": "/dicoding-story-pwa/screenshots/screenshot-mobile.jpg",
       "sizes": "720x1280",
       "type": "image/jpeg",
       "form_factor": "narrow"
@@ -35,8 +36,8 @@
       "name": "Tambah Cerita",
       "short_name": "Tambah",
       "description": "Tambahkan cerita baru dengan cepat",
-      "url": "./#/add",
-      "icons": [{ "src": "icon-96x96.png", "sizes": "96x96" }]
+      "url": "/dicoding-story-pwa/#/add",
+      "icons": [{ "src": "/dicoding-story-pwa/icon-96x96.png", "sizes": "96x96" }]
     }
   ]
 }
