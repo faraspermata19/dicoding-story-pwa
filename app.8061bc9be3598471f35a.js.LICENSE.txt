@@ -1,0 +1,15 @@
+/* @preserve
+ * Leaflet 1.9.4, a JS library for interactive maps. https://leafletjs.com
+ * (c) 2010-2023 Vladimir Agafonkin, (c) 2010-2011 CloudMade
+ */
+
+/*!
+ * leaflet-extra-markers
+ * Custom Markers for Leaflet JS based on Awesome Markers
+ * Leaflet ExtraMarkers
+ * https://github.com/coryasilva/Leaflet.ExtraMarkers/
+ * @author coryasilva <https://github.com/coryasilva>
+ * @version 1.2.1
+ */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */
