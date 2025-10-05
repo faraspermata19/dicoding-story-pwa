@@ -7,26 +7,30 @@ import {
     subscribePushNotification, 
     unsubscribePushNotification, 
     isPushSubscribed 
-} from '../utils/sw-register'; // Import baru
+} from '../utils/sw-register';
 
 class App {
   #content = null;
   #drawerButton = null;
   #navigationDrawer = null;
   #navList = null;
-  #pushToggle = null; // Elemen baru
-  swRegistration = null; // Untuk menyimpan hasil pendaftaran SW
+  #pushToggle = null; 
+  swRegistration = null; 
 
-  constructor({ navigationDrawer, drawerButton, content, pushToggle }) { // Terima pushToggle
+  constructor({ navigationDrawer, drawerButton, content, pushToggle }) {
     this.#content = content;
     this.#drawerButton = drawerButton;
     this.#navigationDrawer = navigationDrawer;
     this.#navList = this.#navigationDrawer.querySelector('#nav-list');
-    this.#pushToggle = pushToggle; // Tetapkan elemen
+    this.#pushToggle = pushToggle;
 
     this._setupDrawer();
-    this._registerServiceWorker(); // Panggil pendaftaran SW
-    this._setupPushToggle(); // Panggil setup baru setelah pendaftaran SW
+    this._registerServiceWorker();
+    
+    // Pastikan pushToggle ada sebelum setup dipanggil
+    if (this.#pushToggle) {
+        this._setupPushToggle();
+    }
   }
   
   // BARU: Pendaftaran Service Worker (Kriteria 3)
@@ -41,15 +45,27 @@ class App {
   // BARU: Logic Toggle Push Notification (Kriteria 2: Advanced)
   _setupPushToggle() {
     this.#pushToggle.addEventListener('change', async (e) => {
-      if (!this.swRegistration || !localStorage.getItem('loginResult')) {
-        alert('Anda harus login dan Service Worker harus terdaftar.');
+      const isChecked = e.target.checked;
+      
+      if (!this.swRegistration) {
+        console.error('ERROR: Service Worker belum terdaftar.');
         e.target.checked = false; 
         return;
       }
+      
+      if (!localStorage.getItem('loginResult')) {
+          console.warn('WARNING: Anda harus login untuk mengaktifkan notifikasi.');
+          e.target.checked = false;
+          return;
+      }
 
-      if (e.target.checked) {
+
+      if (isChecked) {
         // Enable
-        await subscribePushNotification(this.swRegistration);
+        const success = await subscribePushNotification(this.swRegistration);
+        if (!success) {
+             e.target.checked = false; // Jika gagal, kembalikan posisi toggle
+        }
       } else {
         // Disable
         await unsubscribePushNotification(this.swRegistration);
@@ -62,8 +78,10 @@ class App {
 
   // BARU: Perbarui Tampilan Tombol Push
   async _updatePushToggleState() {
+    // Tambahkan guard clause di sini untuk mengatasi flicker/error saat rendering awal
+    if (!this.#pushToggle) return; 
+    
     if (!this.swRegistration || !localStorage.getItem('loginResult')) {
-      // Nonaktifkan toggle jika belum login/SW tidak ada
       this.#pushToggle.checked = false;
       this.#pushToggle.disabled = true;
       return;
@@ -75,7 +93,6 @@ class App {
   }
   
   _setupDrawer() {
-    // ... (tetap sama)
     this.#drawerButton.addEventListener('click', () => {
       this.#navigationDrawer.classList.toggle('open');
     });
@@ -97,7 +114,6 @@ class App {
     const loginResult = localStorage.getItem('loginResult');
     this.#navList.innerHTML = '';
     
-    // ... (Link Beranda dan About - tetap sama)
     const homeLink = document.createElement('li');
     homeLink.innerHTML = `<a href="#/">Beranda</a>`;
     this.#navList.appendChild(homeLink);
@@ -107,7 +123,6 @@ class App {
     this.#navList.appendChild(aboutLink);
 
     if (loginResult) {
-      // ... (Link Tambah Cerita dan Logout - tetap sama)
       const addStoryLink = document.createElement('li');
       addStoryLink.innerHTML = `<a href="#/add">Tambah Cerita</a>`;
       this.#navList.appendChild(addStoryLink);
@@ -131,7 +146,6 @@ class App {
   }
 
   async renderPage() {
-    // ... (tetap sama)
     this._renderNavigation();
     
     const url = getActiveRoute();
