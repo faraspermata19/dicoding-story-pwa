@@ -2,7 +2,7 @@
   "name": "Katalog Cerita Dicoding",
   "short_name": "DicodingStory",
   "description": "Aplikasi berbagi cerita dari Dicoding, dapat diinstal dan diakses secara offline.",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1e90ff",
@@ -35,7 +35,7 @@
       "name": "Tambah Cerita",
       "short_name": "Tambah",
       "description": "Tambahkan cerita baru dengan cepat",
-      "url": "/#/add",
+      "url": "./#/add",
       "icons": [{ "src": "icon-96x96.png", "sizes": "96x96" }]
     }
   ]
