@@ -4,6 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
+// Tentukan PUBLIC_PATH secara eksplisit, ini mengatasi masalah 404 di GitHub Pages
+// Repository name: dicoding-story-pwa
+const PUBLIC_PATH = process.env.NODE_ENV === 'production' 
+  ? '/dicoding-story-pwa/' 
+  : '/'; 
+
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -13,9 +19,9 @@ module.exports = {
     filename: '[name].[contenthash].js', 
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    // BARU: Set publicPath agar semua aset dimuat dari sub-path GitHub Pages
-    // Repository name: dicoding-story-pwa
-    publicPath: process.env.NODE_ENV === 'production' ? '/dicoding-story-pwa/' : '/', 
+    
+    // PERBAIKAN KRITIS: Set publicPath di output
+    publicPath: PUBLIC_PATH, 
   },
   module: {
     rules: [
@@ -46,7 +52,7 @@ module.exports = {
         },
       ],
     }),
-    // Workbox InjectManifest akan membuat sw.js
+    // Workbox InjectManifest
     new InjectManifest({
       swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
       swDest: 'sw.js', 
