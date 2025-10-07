@@ -1,0 +1,9 @@
+APP_URL=http://localhost:3000 cara ceknya biasanya saya pakai npx serve dist
+TMDB_API_KEY=ac4408a68104c63be0a9c2d15614a4be
+DEPLOY URL =https://faraspermata19.github.io/dicoding-story-pwa/
+
+NOTE :
+1. saya juga tes push notification dan service workernya berhasil dibagian link yang sudah saya deploy,
+bukan di lokal server
+2. untuk tes logo install dan laman indexedDB favorit silahkan tes dibagian lokal server atau server lokal (npx serve dist)
+3. berikut bukti kalau saya sudah berhasil dan juga sudah saya screenshot dibagian src/public/bukti

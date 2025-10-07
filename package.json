@@ -1,0 +1,39 @@
+{
+  "name": "app-starter-project-with-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://faraspermata19.github.io/dicoding-story-pwa/",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production npx webpack --config webpack.prod.js",
+    "start-dev": "cross-env NODE_ENV=development npx webpack serve --config webpack.dev.js",
+    "serve": "npx http-server dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "YOUR_NAME <yourmail@mail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.9",
+    "babel-loader": "^10.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^13.0.0",
+    "cross-env": "^10.1.0",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "http-server": "^14.1.1",
+    "mini-css-extract-plugin": "^2.9.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0",
+    "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "gh-pages": "^6.3.0",
+    "idb": "^8.0.3",
+    "leaflet": "^1.9.4",
+    "leaflet-extra-markers": "^1.2.2",
+    "workbox-webpack-plugin": "^7.3.0"
+  }
+}
