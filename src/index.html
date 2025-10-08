@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="manifest.json" /> 
-    <link rel="icon" href="favicon.png" />
-    <link rel="apple-touch-icon" href="icon-192x192.png" /> 
-    <meta name="theme-color" content="#1e90ff" /> 
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Katalog Cerita</title>
-  </head>
-  <body>
-    <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+    <!-- ✅ Manifest & Icon Path Fix -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="icon-192x192.png" />
+    <meta name="theme-color" content="#1e90ff" />
 
-    <header>
-      <div class="main-header container">
-        <a class="brand-name" href="#/">App</a>
+    <title>Katalog Cerita</title>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
-        <nav id="navigation-drawer" class="navigation-drawer">
-          <ul id="nav-list" class="nav-list">
-          </ul>
-          
-          <div class="push-toggle-wrapper">
-            <label for="push-notification-toggle">Push Notification</label>
-            <input type="checkbox" id="push-notification-toggle" role="switch" aria-label="Aktifkan atau Nonaktifkan Push Notification">
-          </div>
-        </nav>
+    <header>
+      <div class="main-header container">
+        <a class="brand-name" href="#/">App</a>
 
-        <button id="drawer-button" class="drawer-button">☰</button>
-      </div>
-    </header>
+        <nav id="navigation-drawer" class="navigation-drawer">
+          <ul id="nav-list" class="nav-list"></ul>
 
-    <main id="main-content" class="main-content"></main>
-    
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Katalog Cerita. All Rights Reserved.</p>
-      </div>
-    </footer>
-  </body>
+          <div class="push-toggle-wrapper">
+            <label for="push-notification-toggle">Push Notification</label>
+            <input
+              type="checkbox"
+              id="push-notification-toggle"
+              role="switch"
+              aria-label="Aktifkan atau Nonaktifkan Push Notification"
+            />
+          </div>
+
+          <!-- ✅ Tombol Install Aplikasi -->
+          <div
+            id="install-app-wrapper"
+            class="install-app-wrapper"
+            style="display: none;"
+          >
+            <button id="install-app-button">Install Aplikasi</button>
+          </div>
+        </nav>
+
+        <button id="drawer-button" class="drawer-button">☰</button>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content"></main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Katalog Cerita. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>
